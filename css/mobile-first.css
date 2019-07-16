@@ -77,13 +77,16 @@ h1, h2, h3, h4, h5 {
 	width:200px;
 	height: 200px;
 	background-repeat: no-repeat;
-	background-size: 200px;
+    background-size: 200px;
+    display:none;
 }
 .mobilelink {
 	text-align: center;
 	padding-bottom: 30px;
 }
+
 .toplogo {
+    padding-bottom: 40px;
 	background-image: url("../img/logo.png");
 	top: 50%;
 	height: 40px;
@@ -92,7 +95,7 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-	width:800px;
+	width:400px;
 	margin: 0 auto;
 	justify-content: center;
 	flex-direction: column;
@@ -100,15 +103,24 @@ body {
 
 nav {
 	flex-grow:1;
-	display: flex;
+    display: flex;
+    width: 100%;
 	justify-content: space-between;
-	text-align: center;
+    margin-right: 0;
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about {
+    margin-top: 20px;
 }
 
 .subcontainer {
 	display:flex;
 	justify-content: center;
-	align-items: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .features {
@@ -117,13 +129,14 @@ nav {
 
 .lower-container {
 	display:flex;
-	justify-content: space-between
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
-
 .lower-container div {
 	margin:30px 0;
 	vertical-align: top;
-	width: 30%;
+	width: 100%;
 }
 
 html body .toppart .title button.startbutton {
@@ -143,10 +156,20 @@ footer {
 	text-align:center;
 	margin-top:50px;
 }
+
 nav a { 
 	text-decoration: none;
-	color:gray;
-	width: 100%;
+    color:gray;
+    margin: 0 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 30px;
+}
+
+nav a:first-child {
+    border-top: 1px solid gray;
+    padding-top: 30px;
 }
 
 a:hover {
@@ -161,14 +184,14 @@ p {
 }
 
 header {
-	background-color: lightgray;
-	height: 40px;
-	position: fixed;
-	top:0%;
-	width:800px;
+	background-color: white;;
+	height: 450px;
+    position: inherit;
+	width:400px;;
 	display:flex;
 	align-items: center;
-	justify-content: space-between;
+    justify-content: space-between;
+    flex-direction: column-reverse;
 }
 
 .title {
@@ -187,7 +210,7 @@ header {
 }
 
 .toppart {
-	margin-top: 60px;
+	margin-top: 30px;
 	margin-bottom: 30px;
 	text-align:center;
 	display:flex;
@@ -197,105 +220,103 @@ header {
 
 hr {
 	border: .5px solid black;
-	margin: 30px 0;
 }
 
-.toppart .title button.startbutton:hover {
+.toppart .title button.startbutton:hover{
 	background-color: green;
 	color: pink;
 	transition: 2s;
 }
 
-@media(max-width:800px) {
+hr {
+	margin: 30px 0;
+}
 
-	body {
+@media(min-width:500px) {
+
+    body {
 		width: 500px;
 	}
-	
-	header {
-		flex-direction: column-reverse;
+    
+    header {
+        display:flex;
+        flex-direction: column-reverse;
+        position:fixed;
+        top: 0%;
 		height: 70px;
-		width:500px;
+        width:500px;
+        background-color: lightgray;
 	}
-
-	nav {
+    
+    .toplogo {
+        padding-bottom: 0;
+	}
+    
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
 		width: 100%;
 		margin-right: 0;
 		margin-top: 10px;
-	}
-	
-	nav a {
-		width: 100%;
-		text-align: center;
-	}
-	
-	.circlelogo {
+		
+    }
+
+    nav a:first-child {
+        border-top: 0;
+        padding-top: 0;
+    }
+    
+    nav a {
+    border-bottom: 0;
+    padding-bottom: 0;
+    }
+    
+    .circlelogo {
 		display:none;
 	}
-	
-	.toppart {
+    
+    .toppart {
 		margin-top: 100px;
-	}
+    }
+    
+    .subcontainer {
+        flex-direction: row;
+    }
 
 	.middlepicture {
 		background-size: contain;
-	}
-}
-@media(max-width:500px) {
-
-	body {
-		width: 400px;
-	}
-	
-	nav {
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	nav a {
-		margin: 0 0;
-		width: 100%;
-		text-align: center;
-		border-bottom: 1px solid gray;
-		padding-bottom: 30px;
-	}
-	
-	nav a:first-child {
-		border-top: 1px solid gray;
-		padding-top: 30px;
-	}
-	
-	header {
-		position: inherit;
-		width: 400px;
-		height: 450px;
-		background-color: white;
-	}
-	
-	.toppart {
-		margin-top: 30px;
-	}
-	
-	.toplogo {
-		padding-bottom: 40px;
-	}
-	
-	.subcontainer {
-		flex-direction: column;
-	}
-	
-	.about {
-		margin-top: 20px;
-	}
-	
-	.lower-container {
-
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	.lower-container div {
-		width: 100%;
-	}
+    }
+    
+    .about{ margin-top: 0px;
+    }
+    
+    .lower-container {
+        flex-direction: row;
+    }
+    
+    .lower-container div {
+        margin: 30px 0;
+        width: 30%;
+    }
 }
 
+@media(min-width:800px) {
+    
+    .circlelogo {
+        display: block;
+    }
+    body {
+        width:800px;
+    }
+    header {
+        width: 800px;
+        flex-direction: row;
+        height: 40px;
+    }
+    nav {
+        margin-top: 0;
+    }
+    .toppart {
+        margin-top: 60px;
+    }
+}
